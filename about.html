@@ -4,12 +4,207 @@
     <title>About Me | Your Portfolio</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 1200px; margin: 0 auto; padding: 20px; }
-        nav { background: #333; padding: 1rem; margin-bottom: 2rem; }
-        nav a { color: white; margin-right: 20px; text-decoration: none; }
-        .content { display: flex; gap: 2rem; margin-top: 2rem; }
-        .story { flex: 2; }
-        .resume-box { flex: 1; border: 1px solid #ddd; padding: 1.5rem; text-align: center; }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            color: #333; 
+            background: #fff;
+        }
+        
+        /* Navigation */
+        nav { 
+            background: #000; 
+            padding: 1rem; 
+            margin-bottom: 2rem; 
+            text-align: center;
+        }
+        nav a { 
+            color: #fff; 
+            margin: 0 20px; 
+            text-decoration: none; 
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover { 
+            color: #0066cc; 
+        }
+        
+        /* Headings */
+        h1 { 
+            color: #000; 
+            border-bottom: 2px solid #0066cc; 
+            padding-bottom: 15px; 
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        h2 { 
+            color: #000; 
+            margin-top: 2rem; 
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
+        }
+        h3 { 
+            color: #333; 
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        h4 {
+            color: #000;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Content Layout */
+        .content { 
+            display: flex; 
+            gap: 3rem; 
+            margin-top: 2rem; 
+            flex-wrap: wrap; 
+        }
+        .story { 
+            flex: 2; 
+            min-width: 300px; 
+        }
+        .resume-box { 
+            flex: 1; 
+            min-width: 300px; 
+            border: 2px solid #000; 
+            padding: 1.5rem; 
+            background: #fff;
+        }
+        
+        /* Story Elements */
+        .cookie-story { 
+            background: #f8f8f8; 
+            border-left: 4px solid #0066cc; 
+            padding: 1.5rem; 
+            margin: 2rem 0; 
+        }
+        
+        .detective-mindset { 
+            background: #fff; 
+            border: 1px solid #ddd; 
+            padding: 1.5rem; 
+            margin: 2rem 0; 
+        }
+        
+        .passion-box { 
+            background: #f8f8f8; 
+            border: 1px solid #000; 
+            padding: 1.5rem; 
+            margin: 2rem 0; 
+        }
+        
+        .process-step { 
+            background: #fff; 
+            border: 1px solid #ddd; 
+            padding: 1.2rem; 
+            margin: 1rem 0; 
+            border-left: 3px solid #0066cc;
+        }
+        
+        /* Accent Elements */
+        .accent { 
+            color: #0066cc; 
+            font-weight: bold;
+        }
+        
+        .icon { 
+            color: #0066cc; 
+            margin-right: 8px; 
+            font-size: 1.2em;
+        }
+        
+        .highlight { 
+            background: #f0f7ff; 
+            padding: 2px 6px; 
+            border-radius: 3px; 
+            font-weight: bold;
+        }
+        
+        /* Buttons */
+        .btn { 
+            display: inline-block; 
+            background: #000; 
+            color: #fff; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 3px; 
+            font-weight: 500; 
+            margin-top: 1rem; 
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn:hover { 
+            background: #0066cc; 
+            color: #fff;
+        }
+        
+        .btn-outline {
+            background: #fff;
+            color: #000;
+            border: 2px solid #000;
+        }
+        .btn-outline:hover {
+            background: #000;
+            color: #fff;
+        }
+        
+        /* Lists */
+        ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        footer { 
+            text-align: center; 
+            margin-top: 3rem; 
+            padding: 1.5rem; 
+            background: #f8f8f8; 
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+        
+        /* Links in text */
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Resume preview */
+        iframe {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        
+        /* Stats box */
+        .stats {
+            background: #f8f8f8;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 3px solid #000;
+        }
+        
+        /* Quote style */
+        .quote {
+            font-style: italic;
+            color: #666;
+            border-left: 3px solid #ddd;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
     </style>
 </head>
 <body>
@@ -20,27 +215,106 @@
         <a href="contact.html">Contact</a>
     </nav>
     
-    <h1>My Journey</h1>
+    <h1>My Data Detective Journey</h1>
     
     <div class="content">
         <div class="story">
-            <h2>From Business to Tech</h2>
-            <p>My passion began when I realized data could solve real business problems. As an Applied Computing graduate, I bridge the gap between technical implementation and strategic decision-making.</p>
+            <h2><span class="icon">🔍</span> The "Aha!" Moment</h2>
             
-            <h2>My Philosophy</h2>
-            <p>Technology should serve business goals. I focus on creating solutions that are not just technically sound, but also deliver measurable value and insights.</p>
+            <div class="cookie-story">
+                <h3>The Case of the Cookie Company</h3>
+                <p>My data journey began with butter, sugar, and a simple question: <span class="accent">"How many of my cookie customers are coming back?"</span> While helping with a small cookie business, I realized we had names, orders, and dates - but no clear picture of customer loyalty.</p>
+                <p>I dove into the data and discovered something exciting: <span class="highlight">40% of customers were repeat buyers</span>, but they weren't being recognized or rewarded. By creating a simple customer segmentation, we designed targeted coupon campaigns that increased repeat purchases by <span class="highlight">25% in just two months</span>.</p>
+                <p><strong>That's when it clicked:</strong> Data isn't just numbers - it's the secret story of your business waiting to be told.</p>
+            </div>
             
-            <h2>What Drives Me</h2>
-            <p>The intersection of analytics and action - turning raw data into strategies that improve efficiency, revenue, and customer experience.</p>
+            <div class="detective-mindset">
+                <h3><span class="icon">🕵️‍♂️</span> The Data Detective Mindset</h3>
+                <p><em>"Everything has a logical explanation - I just follow the clues to figure out what it could be."</em> This detective mindset is what sets me apart. While pure business grads might see spreadsheets and pure CS grads see code, I see a mystery to solve:</p>
+                <ul>
+                    <li><strong>Clue #1:</strong> Why are sales dropping on Tuesdays?</li>
+                    <li><strong>Clue #2:</strong> What pattern connects our most loyal customers?</li>
+                    <li><strong>Clue #3:</strong> How can we predict what customers will want next?</li>
+                </ul>
+                <p>As an Applied Computing graduate, I'm uniquely positioned to be your business detective - I can both uncover the clues <span class="accent">and</span> build the tools to solve the case.</p>
+            </div>
+            
+            <h2><span class="icon">❤️</span> What Drives My Passion</h2>
+            
+            <div class="process-step">
+                <h4>Finding the Answers</h4>
+                <p>I love the thrill of discovery - asking the right questions and following the data trail until the answer reveals itself. There's nothing more satisfying than that moment when scattered data points suddenly form a clear picture.</p>
+            </div>
+            
+            <div class="process-step">
+                <h4>Understanding the "Why"</h4>
+                <p>Getting the answer is just the beginning. I get genuinely excited about exploring <span class="accent">why</span> the data shows what it does. Is it seasonal? Behavioral? Operational? The possibilities are endless, and each insight opens new doors for improvement.</p>
+            </div>
+            
+            <div class="process-step">
+                <h4>Seeing Change Happen</h4>
+                <p>The ultimate reward? Watching recommendations turn into action and seeing the data change as a result. It's like completing a circle: analyze → recommend → implement → measure improvement → analyze again.</p>
+            </div>
+            
+            <div class="passion-box">
+                <h2><span class="icon">🌟</span> My Big Vision</h2>
+                <p>I want to help small businesses survive and thrive using data. Too many great businesses fail in their first year simply because they're flying blind.</p>
+                
+                <p class="quote">"Every business has a data story. I want to help them read it, understand it, and write a better next chapter."</p>
+                
+                <p><strong>My dream project:</strong> Create a universal feedback and analytics package specifically for small businesses. Imagine a tool that:</p>
+                <ul>
+                    <li>Tracks customer satisfaction in real-time</li>
+                    <li>Identifies loyal customers automatically</li>
+                    <li>Predicts inventory needs before you run out</li>
+                    <li>Flags problems before they become crises</li>
+                </ul>
+                <p>Every business has a data story. I want to help them read it, understand it, and write a better next chapter.</p>
+            </div>
+            
+            <h2><span class="icon">💡</span> My Business Analytics Philosophy</h2>
+            
+            <div class="stats">
+                <p>I believe data should be:</p>
+                <ul>
+                    <li><strong>Accessible:</strong> No confusing jargon, just clear insights</li>
+                    <li><strong>Actionable:</strong> Every analysis should lead to a "So what should we do?"</li>
+                    <li><strong>Human-centered:</strong> Behind every data point is a person, a decision, an opportunity</li>
+                    <li><strong>Iterative:</strong> Test, measure, learn, improve - then repeat</li>
+                </ul>
+            </div>
         </div>
         
         <div class="resume-box">
-            <h3>Download My Resume</h3>
-            <p>Get the complete picture of my skills and experience.</p>
-            <a href="your-resume.pdf" style="display: inline-block; background: #333; color: white; padding: 10px 20px; text-decoration: none; margin-top: 1rem;">Download PDF Resume</a>
-            <p style="margin-top: 1rem; font-size: 0.9rem;">Or view embedded below:</p>
-            <iframe src="your-resume.pdf" width="100%" height="400px" style="margin-top: 1rem;"></iframe>
+            <h3><span class="icon">📄</span> My Resume</h3>
+            <p>Get the complete picture of my skills, education, and experience.</p>
+            <a href="your-resume.pdf" class="btn">Download PDF Resume</a>
+            
+            <div class="stats" style="margin-top: 2rem;">
+                <h4>Quick Stats</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><strong>Degree:</strong> Applied Computing</li>
+                    <li><strong>Specialty:</strong> Business Analytics</li>
+                    <li><strong>Superpower:</strong> Data Detective Work</li>
+                    <li><strong>Mission:</strong> Help businesses see their data story</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h4>Resume Preview</h4>
+                <iframe src="your-resume.pdf" width="100%" height="300px" style="margin-top: 0.5rem;"></iframe>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: center;">
+                <p>Want to discuss how I can help solve your business mystery?</p>
+                <a href="contact.html" class="btn btn-outline">Let's Connect</a>
+            </div>
         </div>
     </div>
+    
+    <footer>
+        <p>© 2024 [Your Name]. Built with passion and GitHub Pages.</p>
+        <p>Every business has a data story. Let's write yours together.</p>
+    </footer>
 </body>
 </html>
