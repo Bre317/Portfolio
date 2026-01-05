@@ -3,115 +3,93 @@
 <head>
     <title>Breanna Jordan | Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.7;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    /* Soft feminine gradient */
-    background: linear-gradient(
-        180deg,
-        #ffffff 0%,
-        #f8f5f7 50%,
-        #ffffff 100%
-    );
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
 
-    color: #2f2f2f;
-}
+            /* Soft, feminine background */
+            background: linear-gradient(180deg, #ffffff 0%, #f8f5f7 55%, #ffffff 100%);
+            color: #2f2f2f;
+        }
 
-/* NAV */
-nav {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 1rem;
-    margin-bottom: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    backdrop-filter: blur(6px);
-}
+        /* NAV */
+        nav {
+            background: #ffffff;
+            padding: 1rem;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+        }
 
-nav a {
-    color: #6b4f6b; /* soft plum */
-    margin-right: 20px;
-    text-decoration: none;
-    font-weight: 500;
-}
+        nav a {
+            color: #6b4f6b; /* soft plum */
+            margin-right: 20px;
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-nav a:hover {
-    color: #b38ba3; /* blush hover */
-}
+        nav a:hover {
+            color: #b38ba3; /* blush hover */
+        }
 
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 4rem 1rem;
-}
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+        }
 
-/* PHOTO HALO */
-.photo-wrapper {
-    position: relative;
-    width: 220px;
-    height: 220px;
-    margin: 0 auto 1.5rem;
-}
+        /* PHOTO + HALO (no HTML changes needed) */
+        .photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
 
-.photo-wrapper::before {
-    content: "";
-    position: absolute;
-    inset: -15px;
-    background: radial-gradient(
-        circle,
-        rgba(216, 180, 203, 0.35),
-        transparent 70%
-    );
-    border-radius: 50%;
-    z-index: 0;
-}
+            /* Soft halo glow */
+            box-shadow:
+                0 0 0 10px rgba(216, 180, 203, 0.25),
+                0 20px 45px rgba(0,0,0,0.12);
+        }
 
-.photo {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    position: relative;
-    z-index: 1;
-}
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #3b2f3b;
+        }
 
-/* HEADLINE */
-.hero h1 {
-    font-size: 2.6rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #3b2f3b;
-}
+        .pitch {
+            font-size: 1.2rem;
+            color: #5f5f5f;
+            margin-top: 0.5rem;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-/* PITCH */
-.pitch {
-    font-size: 1.25rem;
-    max-width: 720px;
-    margin: 0 auto;
-    color: #5f5f5f;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 1.5rem;
-    background: rgba(255,255,255,0.7);
-    border-radius: 12px;
-    font-size: 0.9rem;
-    color: #777;
-}
-
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 1.5rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            color: #777;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html">Home</a>
@@ -119,15 +97,17 @@ footer {
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </nav>
-    
+
     <div class="hero">
-        <div class="photo-wrapper">
-    <img src="your-photo.jpg" alt="Your Name" class="photo">
-</div>
-        <h1>Hi, I'm Bre !</h1>
-        <p class="pitch">Applied Computing graduate from the University of Arizona, specializing in data analysis and business intelligence. Skilled in SQL, Python, Excel, and Tableau to translate data into actionable insights that support strategic and operational decision-making.</p>
+        <img src="your-photo.jpg" alt="Breanna Jordan" class="photo">
+        <h1>Hi, I'm Bre!</h1>
+
+        <p class="pitch">
+            Applied Computing graduate from the University of Arizona, specializing in data analysis and business intelligence.
+            Skilled in SQL, Python, Excel, and Tableau to translate data into actionable insights that support strategic and operational decision-making.
+        </p>
     </div>
-    
+
     <footer>
         <p>© 2025 Breanna Jordan. Built with GitHub Pages.</p>
     </footer>
