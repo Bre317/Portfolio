@@ -1,119 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Your Name | Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Your Name | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <style>
+    :root{
+      --ink: #1f1f1f;
+      --muted: #5a5a5a;
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+      /* SAME THEME AS CONTACT/PROJECTS */
+      --accent: #7b4aa6;          /* purple accent */
+      --accent-soft: #efe6f7;     /* soft lavender */
+      --card: rgba(255,255,255,.70);
+      --card-strong: rgba(255,255,255,.82);
+      --shadow: 0 10px 30px rgba(0,0,0,.10);
+      --radius: 18px;
+      --max: 1200px;
+    }
 
-    background-image: url("Data Background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-        }
+    *{ margin:0; padding:0; box-sizing:border-box; }
 
+    body{
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
 
-    
+      /* BACKGROUND (keep yours) */
+      background-image: url("Data%20Background.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
 
-        nav {
-            background: #333;
-            padding: 1rem;
-            margin-bottom: 2rem;
-        }
+      padding: 18px;
+      min-height: 100vh;
+    }
 
-        nav a {
-            color: white;
-            margin-right: 20px;
-            text-decoration: none;
-        }
+    .page{
+      max-width: var(--max);
+      margin: 0 auto;
+    }
 
-        .hero {
-            text-align: center;
-            padding: 3rem 1rem;
-        }
+    /* ---------- NAV (matches the image + your cohesive theme) ---------- */
+    .topbar{
+      background: rgba(255,255,255,.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      margin-bottom: 26px;
+    }
 
-        .photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1rem;
+    nav{
+      display:flex;
+      gap: 26px;
+      align-items:center;
+      justify-content:flex-start;
+      padding: 4px 6px;
+    }
 
-    /* Halo effect */
-    box-shadow:
-        0 0 0 12px rgba(255, 255, 255, 0.85),
-        0 0 40px rgba(179, 139, 163, 0.45);
-}
+    nav a{
+      color: var(--ink);
+      text-decoration:none;
+      font-weight: 500;
+      padding: 8px 2px;
+      position: relative;
+      opacity: .92;
+    }
+    nav a:hover{ opacity: 1; }
 
-        }
+    nav a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom: -2px;
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
 
-        .pitch {
-            font-size: 1.5rem;
-            color: #333;
-            margin-top: 1rem;
-        }
+    /* ---------- HERO CARD (matches the image) ---------- */
+    .heroWrap{
+      display:grid;
+      place-items:center;
+      padding: 10px 0 22px;
+    }
 
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 1rem;
-            background: #f4f4f4;
-        }
-    </style>
+    .heroCard{
+      width: 100%;
+      border-radius: calc(var(--radius) + 10px);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 4vw, 42px);
+      text-align:center;
+      overflow:hidden;
+      position: relative;
+    }
+
+    .heroCard::before{
+      content:"";
+      position:absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid rgba(255,255,255,.55);
+      pointer-events:none;
+    }
+
+    .photo{
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      object-fit: cover;
+      box-shadow: 0 12px 26px rgba(0,0,0,.16);
+      border: 8px solid rgba(255,255,255,.82);
+      background: rgba(255,255,255,.6);
+      display:block;
+      margin: 0 auto 18px;
+    }
+
+    .heroTitle{
+      font-size: clamp(38px, 5vw, 56px);
+      letter-spacing: -0.8px;
+      margin-bottom: 10px;
+    }
+
+    .heroTitle .accent{
+      color: var(--accent);
+    }
+
+    .heroText{
+      font-size: clamp(18px, 2.1vw, 22px);
+      color: #2f2f2f;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* ---------- SKILL CHIPS (matches image) ---------- */
+    .chips{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content:center;
+      margin-top: 18px;
+    }
+
+    .chip{
+      background: rgba(30,30,30,.70);
+      color:#fff;
+      padding: 7px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    /* ---------- CTA BUTTONS (matches image) ---------- */
+    .ctaRow{
+      display:flex;
+      gap: 14px;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      font-weight: 800;
+      padding: 12px 22px;
+      border-radius: 10px;
+      transition: transform .12s ease;
+      min-width: 190px;
+      text-align:center;
+    }
+
+    .btnPrimary{
+      background: var(--accent);
+      color:#fff;
+      box-shadow: 0 10px 20px rgba(123,74,166,.25);
+    }
+
+    .btnGhost{
+      background: rgba(255,255,255,.72);
+      color: var(--ink);
+      border: 1px solid rgba(0,0,0,.18);
+    }
+
+    .btn:hover{ transform: translateY(-1px); }
+
+    /* ---------- FOOTER (soft / not heavy) ---------- */
+    footer{
+      text-align:center;
+      margin-top: 22px;
+      color: rgba(0,0,0,.65);
+      font-size: 14px;
+    }
+
+    @media (max-width: 520px){
+      .photo{ width: 160px; height: 160px; }
+      .btn{ min-width: 160px; }
+    }
+  </style>
 </head>
 
 <body>
-    <nav>
-        <a href="index.html">Home</a>
+  <div class="page">
+
+    <!-- NAV -->
+    <div class="topbar">
+      <nav>
+        <a class="active" href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
-    </nav>
+      </nav>
+    </div>
 
-    <div class="hero">
-    <img src="your-photo.jpg" alt="Your Name" class="photo">
+    <!-- HERO -->
+    <main class="heroWrap">
+      <section class="heroCard">
 
-    <h1>Hi, I’m Breanna — but you can call me Bre.</h1>
+        <!-- IMPORTANT: rename your real headshot to "headshot.jpg" OR change this src -->
+        <img src="headshot.jpg" alt="Breanna Jordan headshot" class="photo" />
 
-    <p class="pitch">
-        I graduated from the University of Arizona (Go Wildcats!) with a Bachelor of Science in Applied Computing,
-        with an emphasis in Information Management. I’ve always been naturally curious, and I tend to approach
-        problems like puzzles. I like asking questions, figuring things out on my own, and really understanding
-        how something works instead of just getting to the answer.
-    </p>
+        <h1 class="heroTitle">Hi, I’m <span class="accent">Bre</span>!</h1>
 
-    <p class="pitch">
-        I thrive in structured environments that still allow for some independence. I enjoy having clear expectations
-        while also being trusted to manage my work and think through problems on my own. I originally started out as
-        a software development major, but I realized I missed the visual side of things — the “pretty colors,” as I like
-        to say. Applied Computing gave me a better balance between code, data, and design, which felt like a much better
-        fit for how I think and work.
-    </p>
+        <!-- Match the image text style: concise single paragraph -->
+        <p class="heroText">
+          Applied Computing graduate from the University of Arizona, specializing in data analysis and business
+          intelligence. Skilled in SQL, Python, Excel, and Tableau to translate data into actionable insights
+          that support strategic and operational decision-making.
+        </p>
 
-    <p class="pitch">
-        Outside of work and school, I love traveling and exploring new cities, and spending time with my family.
-        We’re pretty close-knit, and that sense of connection and support is something I really value and try to
-        bring into the way I work with others.
-    </p>
-</div>
+        <div class="chips">
+          <span class="chip">SQL</span>
+          <span class="chip">Python</span>
+          <span class="chip">Excel</span>
+          <span class="chip">Tableau</span>
+        </div>
 
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="projects.html">View Projects</a>
+          <a class="btn btnGhost" href="contact.html">Get In Touch</a>
+        </div>
+
+      </section>
+    </main>
 
     <footer>
-        <p>© 2025 Breanna Jordan. Built with GitHub Pages.</p>
+      © 2025 Breanna Jordan. Built with GitHub Pages.
     </footer>
+
+  </div>
 </body>
 </html>
 
