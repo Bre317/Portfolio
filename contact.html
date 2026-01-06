@@ -1,91 +1,394 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Contact | Your Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Contact | Your Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <style>
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+  <style>
+    :root{
+      --ink: #1f1f1f;
+      --muted: #5a5a5a;
+      --accent: #7b4aa6;          /* purple accent like the mock */
+      --accent-soft: #efe6f7;     /* soft lavender */
+      --card: rgba(255,255,255,.82);
+      --card-strong: rgba(255,255,255,.92);
+      --shadow: 0 10px 30px rgba(0,0,0,.10);
+      --radius: 14px;
+      --max: 1200px;
+    }
 
-        body { 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 20px;
+    *{ margin:0; padding:0; box-sizing:border-box; }
 
-            /* BACKGROUND IMAGE */
-            background-image: url("Data%20Background.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    body{
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
 
-        nav { 
-            background: #333; 
-            padding: 1rem; 
-            margin-bottom: 2rem; 
-        }
+      /* BACKGROUND IMAGE */
+      background-image: url("Data%20Background.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
 
-        nav a { 
-            color: white; 
-            margin-right: 20px; 
-            text-decoration: none; 
-        }
+      padding: 18px;
+    }
 
-        .contact-links { 
-            margin-top: 2rem; 
-        }
+    .page{
+      max-width: var(--max);
+      margin: 0 auto;
+    }
 
-        .contact-item { 
-            margin-bottom: 1.5rem; 
-            padding: 1rem; 
-            border-left: 4px solid #333; 
-            background: #fff; /* keeps text readable */
-        }
-    </style>
+    /* ---------- NAV (matches the mock: light bar + underline active) ---------- */
+    .topbar{
+      background: rgba(255,255,255,.65);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 10px 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      margin-bottom: 22px;
+    }
+
+    nav{
+      display:flex;
+      gap: 26px;
+      align-items:center;
+      justify-content:flex-start;
+      padding: 4px 6px;
+    }
+
+    nav a{
+      color: var(--ink);
+      text-decoration:none;
+      font-weight: 500;
+      padding: 8px 2px;
+      position: relative;
+      opacity: .92;
+    }
+
+    nav a:hover{ opacity: 1; }
+
+    /* underline indicator */
+    nav a.active::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom: -2px;
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      padding: 10px 2px 0;
+      margin-bottom: 18px;
+    }
+
+    .hero h1{
+      font-size: clamp(34px, 4vw, 48px);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .hero p{
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      max-width: 760px;
+    }
+
+    /* ---------- FEATURE PANEL (white translucent box with left border accent) ---------- */
+    .feature{
+      display:grid;
+      grid-template-columns: 1.4fr .9fr;
+      gap: 18px;
+      align-items: center;
+
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px;
+      border-left: 6px solid var(--accent);
+      overflow:hidden;
+    }
+
+    .feature h2{
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .bullet{
+      list-style:none;
+      display:grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .bullet li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color: #2a2a2a;
+    }
+
+    .check{
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      display:grid;
+      place-items:center;
+      color: var(--accent);
+      font-weight: 700;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+
+    .rightSide{
+      display:grid;
+      justify-items:center;
+      gap: 10px;
+    }
+
+    .headshot{
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,.14);
+      border: 6px solid rgba(255,255,255,.85);
+      background: rgba(255,255,255,.6);
+    }
+
+    .quote{
+      font-style: italic;
+      text-align:center;
+      color: #3b3b3b;
+      max-width: 320px;
+      padding: 8px 10px;
+    }
+
+    /* ---------- CONTACT GRID ---------- */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .card{
+      background: var(--card-strong);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px 16px;
+      position: relative;
+    }
+
+    /* left accent strip like the mock cards */
+    .card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width: 6px;
+      border-radius: var(--radius) 0 0 var(--radius);
+      background: rgba(0,0,0,.60);
+    }
+
+    /* middle card uses purple strip in the mock */
+    .card.purple::before{ background: var(--accent); }
+
+    .card h3{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .meta{
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .link, .plain{
+      color: var(--ink);
+      word-break: break-word;
+    }
+
+    .link a{
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .link a:hover{ text-decoration: underline; }
+
+    /* ---------- OPEN TO CARD (right side) ---------- */
+    .openTo ul{
+      list-style: none;
+      display:grid;
+      gap: 10px;
+      margin: 10px 0 14px;
+    }
+
+    .openTo li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color:#2a2a2a;
+    }
+
+    .cta{
+      margin-top: 10px;
+      padding-top: 10px;
+      color: var(--muted);
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top: 14px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration:none;
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 999px;
+      box-shadow: 0 10px 20px rgba(123,74,166,.25);
+      transition: transform .12s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+
+    /* ---------- GitHub wide card ---------- */
+    .wide{
+      grid-column: 1 / -1;
+      padding-bottom: 18px;
+    }
+
+    .wide .quoteLine{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      color: #6a6a6a;
+      font-style: italic;
+    }
+
+    .quoteMark{
+      color: var(--accent);
+      font-size: 22px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 980px){
+      .feature{ grid-template-columns: 1fr; }
+      .rightSide{ justify-items:start; }
+      .quote{ text-align:left; }
+      .grid{ grid-template-columns: 1fr; }
+      .wide{ grid-column: auto; }
+    }
+  </style>
 </head>
 
 <body>
-    <nav>
+  <div class="page">
+
+    <!-- NAV -->
+    <div class="topbar">
+      <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-
-    <h1>Let's Connect</h1>
-    <p>I'm always open to discussing data projects, business analytics, or new opportunities.</p>
-
-    <div class="contact-links">
-        <div class="contact-item">
-            <h3>📧 Email</h3>
-            <p>Jordan.M.Breanna@gmail.com</p>
-        </div>
-
-        <div class="contact-item">
-            <h3>💼 LinkedIn</h3>
-            <p>
-                <a href="https://linkedin.com/in/yourprofile">
-                    linkedin.com/in/yourprofile
-                </a>
-            </p>
-        </div>
-
-        <div class="contact-item">
-            <h3>💻 GitHub</h3>
-            <p>
-                <a href="https://github.com/breannajordan">
-                    github.com/breannajordan
-                </a>
-            </p>
-        </div>
+        <a class="active" href="contact.html">Contact</a>
+      </nav>
     </div>
+
+    <!-- HERO -->
+    <header class="hero">
+      <h1>Let’s Connect</h1>
+      <p>I enjoy conversations that turn data into insight and ideas into action.</p>
+
+      <!-- FEATURE PANEL -->
+      <section class="feature">
+        <div>
+          <h2>What I’m excited to talk about</h2>
+          <ul class="bullet">
+            <li><span class="check">✓</span><span>Turning messy data into clear business decisions</span></li>
+            <li><span class="check">✓</span><span>Entry-level to mid-level data analytics roles</span></li>
+            <li><span class="check">✓</span><span>Portfolio feedback &amp; project collaboration</span></li>
+            <li><span class="check">✓</span><span>Real-world analytics questions (not just theory)</span></li>
+          </ul>
+        </div>
+
+        <div class="rightSide">
+          <!-- Replace with your actual headshot file name -->
+          <img class="headshot" src="headshot.jpg" alt="Headshot of Breeanna Jordan" />
+          <div class="quote">“Good analysis doesn’t just explain the past — it informs the next decision.”</div>
+        </div>
+      </section>
+    </header>
+
+    <!-- CONTACT GRID -->
+    <main class="grid">
+
+      <!-- EMAIL -->
+      <section class="card">
+        <h3>📧 Email</h3>
+        <div class="meta">Best for: introductions, opportunities, longer conversations</div>
+        <div class="plain">Jordan.M.Breanna@gmail.com</div>
+      </section>
+
+      <!-- LINKEDIN -->
+      <section class="card purple">
+        <h3>💼 LinkedIn</h3>
+        <div class="meta">Best for: professional connections &amp; career discussions</div>
+        <div class="link">
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener">
+            linkedin.com/in/yourprofile
+          </a>
+        </div>
+      </section>
+
+      <!-- CURRENTLY OPEN TO -->
+      <section class="card openTo">
+        <h3>Currently open to:</h3>
+        <ul>
+          <li><span class="check">✓</span><span>Junior / Associate Data Analyst roles</span></li>
+          <li><span class="check">✓</span><span>Remote or hybrid opportunities</span></li>
+          <li><span class="check">✓</span><span>Contract or full-time positions</span></li>
+        </ul>
+
+        <div class="cta">Send me a message — I usually respond within 24–48 hours.</div>
+
+        <!-- A button that opens an email draft -->
+        <a class="btn" href="mailto:Jordan.M.Breanna@gmail.com?subject=Portfolio%20Contact">
+          Get In Touch
+        </a>
+      </section>
+
+      <!-- GITHUB (wide) -->
+      <section class="card wide">
+        <h3>💻 GitHub</h3>
+        <div class="link">
+          <a href="https://github.com/breannajordan" target="_blank" rel="noopener">
+            github.com/breannajordan
+          </a>
+        </div>
+
+        <div class="quoteLine">
+          <div class="quoteMark">❝</div>
+          <div>Good analysis doesn’t explain the past — it informs the next decision.</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
 </body>
 </html>
+
 
