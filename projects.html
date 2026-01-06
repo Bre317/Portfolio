@@ -2,17 +2,67 @@
 <html>
 <head>
     <title>Projects | Your Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 1200px; margin: 0 auto; padding: 20px; }
-        nav { background: #333; padding: 1rem; margin-bottom: 2rem; }
-        nav a { color: white; margin-right: 20px; text-decoration: none; }
-        .project { border: 1px solid #ddd; padding: 1.5rem; margin-bottom: 2rem; border-radius: 5px; }
-        .badges { margin: 10px 0; }
-        .badge { background: #555; color: white; padding: 5px 10px; border-radius: 3px; display: inline-block; margin-right: 5px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* PROJECTS PAGE BACKGROUND */
+        .projects-page {
+            background-image: url("images/projects-background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center top;
+        }
+
+        nav {
+            background: #333;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        nav a {
+            color: white;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+
+        .project {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+            background: #ffffff; /* keeps projects readable */
+        }
+
+        .badges {
+            margin: 10px 0;
+        }
+
+        .badge {
+            background: #555;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-right: 5px;
+        }
     </style>
 </head>
-<body>
+
+<body class="projects-page">
     <nav>
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
