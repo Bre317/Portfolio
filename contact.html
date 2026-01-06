@@ -2,15 +2,55 @@
 <html>
 <head>
     <title>Contact | Your Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; line-height: 1.6; max-width: 1200px; margin: 0 auto; padding: 20px; }
-        nav { background: #333; padding: 1rem; margin-bottom: 2rem; }
-        nav a { color: white; margin-right: 20px; text-decoration: none; }
-        .contact-links { margin-top: 2rem; }
-        .contact-item { margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #333; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+
+        body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px;
+
+            /* BACKGROUND IMAGE */
+            background-image: url("Data%20Background.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        nav { 
+            background: #333; 
+            padding: 1rem; 
+            margin-bottom: 2rem; 
+        }
+
+        nav a { 
+            color: white; 
+            margin-right: 20px; 
+            text-decoration: none; 
+        }
+
+        .contact-links { 
+            margin-top: 2rem; 
+        }
+
+        .contact-item { 
+            margin-bottom: 1.5rem; 
+            padding: 1rem; 
+            border-left: 4px solid #333; 
+            background: #fff; /* keeps text readable */
+        }
     </style>
 </head>
+
 <body>
     <nav>
         <a href="index.html">Home</a>
@@ -18,30 +58,32 @@
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
     </nav>
-    
-    background-image: url("Data Background.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 
     <h1>Let's Connect</h1>
     <p>I'm always open to discussing data projects, business analytics, or new opportunities.</p>
-    
+
     <div class="contact-links">
         <div class="contact-item">
             <h3>📧 Email</h3>
             <p>jordan.m.breanna@gmail.com</p>
         </div>
-        
+
         <div class="contact-item">
             <h3>💼 LinkedIn</h3>
-            <p><a href="https://linkedin.com/in/yourprofile">linkedin.com/in/yourprofile</a></p>
+            <p>
+                <a href="https://linkedin.com/in/yourprofile">
+                    linkedin.com/in/yourprofile
+                </a>
+            </p>
         </div>
-        
+
         <div class="contact-item">
             <h3>💻 GitHub</h3>
-            <p><a href="https://github.com/breannajordan">github.com/breannajordan</a></p>
+            <p>
+                <a href="https://github.com/breannajordan">
+                    github.com/breannajordan
+                </a>
+            </p>
         </div>
     </div>
 </body>
